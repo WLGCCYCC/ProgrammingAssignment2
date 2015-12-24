@@ -55,12 +55,12 @@ cacheSolve <- function(x, ...) {
 		
 	}
 	
-	#If IM is empty then use "get" to extract the matrix and inverse it
+	##If IM is empty then use "get" to extract the matrix and inverse it
 	data <- x$get()
 	
 	IM <- solve(data, ...)
 	
-	x$setmean(IM)
+	x$setIM(IM)
 	
 	IM
 }
