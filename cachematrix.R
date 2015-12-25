@@ -38,7 +38,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve takes an input from makeCacheMatrix
+## cacheSolve takes an input that is created by makeCacheMatrix
+## and returns inversed matrix
 ## The argument "..." will be passed to function "solve"
 
 cacheSolve <- function(x, ...) {
@@ -55,12 +56,16 @@ cacheSolve <- function(x, ...) {
 		
 	}
 	
-	##If IM is empty then use "get" to extract the matrix and inverse it
+	##If IM is empty 
+	## then use "get" to extract the uninversed matrix from makeCacheMatrix
 	data <- x$get()
 	
+	## inverse the matrix and store in IM
 	IM <- solve(data, ...)
 	
+	## put the inversed matrix in makeCheMatrix for future use
 	x$setIM(IM)
 	
+	##return  the inversed matrix
 	IM
 }
